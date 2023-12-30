@@ -1,0 +1,27 @@
+name: Create Timestamp File
+
+on: 
+  push:
+    branches:
+      - main  # or any other branch you want to trigger the action
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Create timestamp file
+      run: |
+        echo "Current timestamp: $(date)" > timestamp.txt
+
+    - name: Commit timestamp file
+      run: |
+        git config --global user.email "kgryczan@gmail.com"
+        git config --global user.name "kgryczan"
+        git add timestamp.txt
+        git commit -m "Add timestamp" -a || echo "No changes to commit"
+        git push origin main
+

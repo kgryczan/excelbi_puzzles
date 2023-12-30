@@ -14,3 +14,4 @@ result = input %>%
 identical(result, test)
 #> [1] TRUE
 
+#test_action

@@ -14,8 +14,7 @@ generate_cyclopic_palindromes <- function(n) {
   half_parts
 }
 
-palindromic_cyclopic_numbers <- map(seq_len(4), generate_cyclopic_palindromes) %>% 
-  pluck(4) %>%
+palindromic_cyclopic_numbers <- generate_cyclopic_palindromes(4) %>% 
   head(1000)
 
 identical(palindromic_cyclopic_numbers, test$`Expected Answer`)

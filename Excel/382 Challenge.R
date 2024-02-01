@@ -29,16 +29,3 @@ result = input %>%
   mutate(coded = map_chr(`Plain Text`, code))
 
 result
-
-# # A tibble: 9 × 2
-# `Plain Text`                      coded                         
-# <chr>                             <chr>                         
-# 1 battle won                     whppjv bno                    
-# 2 spy on prowl                   wnk fp nlfsr                  
-# 3 microsoft excel                ucisvrvxw kfikd               
-# 4 vikings wants to sign a treaty ivnvkeu btkau ap uvek t algtaf
-# 5 daily challenges               vucjz iwujjktxkq              
-# 6 enemy is at the gate           whwpc zd bk knw rbkw          
-# 7 we need to strategise          fi hiio gd bgxygitebi         
-# 8 attack at once                 joojqg jo tbqd                
-# 9 soldiers to surrender          dpcswykd zp dfkkyasyk         

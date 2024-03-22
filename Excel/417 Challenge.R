@@ -12,3 +12,4 @@ result = input %>%
 
 identical(result$splitted, test$`Expected Answer`)
 # [1] TRUE
+

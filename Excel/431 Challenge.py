@@ -10,7 +10,6 @@ result = result.groupby(["Region", "Rank"]).size().reset_index(name="n")
 result = result.groupby("Rank").apply(lambda x: x[x["n"] == x["n"].max()]).reset_index(drop=True)
 result["RegionNo"] = result["Region"].str.extract(r"(\d+)").astype(int)
 result = result.sort_values(["Rank", "RegionNo"])
-
 result = result.groupby("Rank")["Region"].apply(lambda x: ", ".join(x)).reset_index(name="Regions")
 
-print(result.equals(test))
+print(result.equals(test)) # True

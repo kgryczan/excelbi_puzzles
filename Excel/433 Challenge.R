@@ -25,3 +25,20 @@ result = str_match(input$Text, pattern) %>%
 
 identical(result, test)
 # [1] TRUE
+
+### Third approach -----
+
+
+library(unglue)
+
+patterns = c("{Level1}.{Level2}.{Level3} : {`First Name`} {`Last Name`}",
+             "{Level1}.{Level2} : {`First Name`} {`Last Name`}",
+             "{Level1} : {`First Name`} {`Last Name`}")
+
+result = input %>%
+  unglue_unnest(Text, patterns = patterns) %>%
+  select(Level1,Level2,Level3,`First Name` = `X.First.Name.`,`Last Name`= `X.Last.Name.`)
+
+identical(result, test)
+# [1] TRUE
+

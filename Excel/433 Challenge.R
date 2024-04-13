@@ -1,7 +1,7 @@
 library(tidyverse)
 library(readxl)
 
-input = read_excel("Excel/433 Text Split.xlsx", range = "A1:20")
+input = read_excel("Excel/433 Text Split.xlsx", range = "A1:A20")
 test  = read_excel("Excel/433 Text Split.xlsx", range = "C1:G20")
 
 result = input %>%

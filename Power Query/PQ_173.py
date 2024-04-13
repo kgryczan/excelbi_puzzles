@@ -4,7 +4,6 @@ import numpy as np
 input = pd.read_excel("PQ_Challenge_173.xlsx", sheet_name="Sheet1",  usecols = "A:B", nrows=731)
 test = pd.read_excel("PQ_Challenge_173.xlsx", sheet_name="Sheet1",  usecols="D:H", nrows=26)
 
-
 input["quarter"] = pd.PeriodIndex(input["Date"], freq="Q").quarter
 input["year"] = input["Date"].dt.year
 input["month"] = input["Date"].dt.strftime("%b")

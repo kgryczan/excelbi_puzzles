@@ -1,6 +1,5 @@
 import pandas as pd
 import re
-import re
 
 input = pd.read_excel("437 Bifid Cipher_Part 2.xlsx", usecols="A:B", nrows=10)
 test = pd.read_excel("437 Bifid Cipher_Part 2.xlsx", usecols="C", nrows=10)
@@ -41,4 +40,4 @@ def bifid_encode(text, keyword):
     return encoded_text
 
 input['Answer Expected'] = input.apply(lambda row: bifid_encode(row['Plain Text'], row['Keywords']), axis=1)
-print(input['Answer Expected'].equals(test['Answer Expected']))
+print(input['Answer Expected'].equals(test['Answer Expected'])) # True

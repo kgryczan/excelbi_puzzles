@@ -4,9 +4,7 @@ input1 = pd.read_excel("438 Resistor Value_v2.xlsx", sheet_name="Sheet1", usecol
 input2 = pd.read_excel("438 Resistor Value_v2.xlsx", sheet_name="Sheet1", usecols="E", nrows=9)
 test = pd.read_excel("438 Resistor Value_v2.xlsx", sheet_name="Sheet1", usecols="F", nrows=9)
 
-# write function to change notation of numbers to K, M, G
 def change_notation(number):
-    # if number is string convert to int
     if isinstance(number, str):
         number = int(number)
     

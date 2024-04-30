@@ -31,4 +31,4 @@ def generate_sequence(start_digit, iter=4):
 result = input.copy()
 result["Answer Expected"] = result["Numbers"].map(lambda x: generate_sequence(x))
 
-print(result["Answer Expected"].equals(test["Answer Expected"]))
+print(result["Answer Expected"].equals(test["Answer Expected"])) # True

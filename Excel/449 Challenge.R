@@ -10,7 +10,8 @@ colnames(test) = colnames(input)
 is_rotated = function(string1, string2) {
   is_0_rot = string1 == string2
   is_rot = str_detect(paste0(string1, string1), string2)
-  return(is_rot & !is_0_rot)
+  is_length_equal = nchar(string1) == nchar(string2)
+  return(is_rot & !is_0_rot & is_length_equal)
 }
 
 result = input %>%
@@ -25,7 +26,7 @@ identical(result, test)
 # approach 2 
 
 result2 = input %>% 
-  filter(map2_lgl(String1, String2, ~str_detect(paste0(.x, .x), .y) & .x != .y))
+  filter(map2_lgl(String1, String2, ~str_detect(paste0(.x, .x), .y) & .x != .y & nchar(.x) == nchar(.y)))
 
 identical(result2, test)
-# [1] TRUE
+# [1] TRUE  

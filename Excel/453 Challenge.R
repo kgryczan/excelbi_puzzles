@@ -22,3 +22,20 @@ result2 = as_tibble(common) %>%
 
 identical(result2, test) 
 #> [1] TRUE
+
+
+# Approach 2
+
+result = input %>%
+  pivot_longer(cols = everything()) %>%
+  count(value, by = name) %>%
+  mutate(nr = n_distinct(by),
+         min_n = min(n) %>% as.numeric(),
+         .by = value) %>%
+  filter(nr == 2) %>%
+  select(Match = value, Count = min_n) %>%
+  distinct()
+
+
+identical(result, test)  
+# [1] TRUE

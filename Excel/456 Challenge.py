@@ -5,7 +5,7 @@ input = pd.read_excel('456 Extract special Characters.xlsx', usecols="A", nrows 
 test  = pd.read_excel('456 Extract special Characters.xlsx', usecols="B", nrows = 10)
 
 # Approach 1 - remove alphanumeric characters
-result = input['String'].str.replace(r'\w+', '', regex=True)
+result = input['String'].str.replace(r'[a-zA-Z0-9]', '', regex=True)
 result = result.replace(r'^\s*$', np.nan, regex=True)
 
 print(result.equals(test['Expected Answer'])) # True

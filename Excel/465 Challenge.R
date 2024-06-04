@@ -31,7 +31,7 @@ while (any(assignments %>% count(Person) %>% pull(n) > 3)) {
   assign_tasks(task_candidates)
 }
 
-assignments %>%
+assignments = assignments %>%
   arrange(Task_ID) %>%
   mutate(Person = case_when(
     Person == "P1" ~ "A",
@@ -39,3 +39,5 @@ assignments %>%
     Person == "P3" ~ "C",
     Person == "P4" ~ "D"
   ))
+
+View(assignments)

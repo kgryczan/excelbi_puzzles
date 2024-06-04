@@ -1,7 +1,7 @@
 library(tidyverse)
 library(readxl)
 library(stringi)
-library(r.utils)
+library(R.utils)
 
 test = read_excel('Excel/464 Palindromic Evil Numbers.xlsx', range = "A1:A1001")
 

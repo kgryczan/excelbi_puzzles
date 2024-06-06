@@ -5,6 +5,8 @@ library(rebus)
 input = read_excel("Excel/472 Operator in a grid.xlsx", range = "A1:G10")
 test  = read_excel("Excel/472 Operator in a grid.xlsx", range = "I1:I10")
 
+# REGEX approach ------
+# 
 pattern = START %R% capture(one_or_more(DGT)) %R% capture(NOT_DGT) %R% capture(one_or_more(DGT)) %R% END
 
 evaluate_expression = function(n1, op, n2) {
@@ -23,4 +25,15 @@ result = input %>%
   mutate(`Answer Expected` = pmap_dbl(list(n1, op, n2), evaluate_expression))
 
 identical(result$`Answer Expected`, test$`Answer Expected`)
+#> [1] TRUE
+
+## EVAL approach ------
+
+library(rlang)
+
+result2 = input %>%
+  unite("result", 1:7, sep = "") %>%
+  mutate(`Answer Expected` = map_dbl(result, ~ eval(parse_expr(.x))))
+
+identical(result2$`Answer Expected`, test$`Answer Expected`)
 #> [1] TRUE

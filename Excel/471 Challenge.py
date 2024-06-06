@@ -5,7 +5,7 @@ input = pd.read_excel("471 Keyword Cipher Decrypter.xlsx", usecols="A:B", nrows 
 test = pd.read_excel("471 Keyword Cipher Decrypter.xlsx", usecols="C:C", nrows = 9)
 
 def prepare_keycode(keyword):
-    keyword = "".join(dict.fromkeys(keyword))  # Remove duplicates while preserving order
+    keyword = "".join(dict.fromkeys(keyword)) 
     alphabet = string.ascii_lowercase
     keycode = list(keyword) + [char for char in alphabet if char not in keyword]
     return keycode

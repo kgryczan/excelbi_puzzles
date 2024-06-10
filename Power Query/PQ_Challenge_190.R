@@ -34,3 +34,16 @@ result = input %>%
 
 identical(result, test)
 # [1] TRUE         
+
+### Solution 2 ------
+
+pattern =  'Name:(\\w+)Org:(\\w+)City:(\\w+)FromDate:(\\d+)ToDate:(\\d+)'
+
+result2 <- input %>%
+  extract(Data, into = c("Name", "Org", "City", "From Date", "To Date"), regex = pattern, remove = FALSE) %>%
+  mutate(across(c(`From Date`, `To Date`), ~ ymd(.x) %>% as.POSIXct())) %>%
+  mutate(across(c(Name, City), ~ str_replace_all(.x, "([A-Z])", " \\1") %>% trimws(which = "left"))) %>%
+  select(-Data)
+
+identical(result2, test)
+# [1] TRUE

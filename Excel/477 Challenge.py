@@ -25,5 +25,5 @@ for i in range(len(dfs)):
 
 df = pd.concat(dfs, axis=1)
 
-print(df.equals(test))
+print(df.equals(test)) # True
 

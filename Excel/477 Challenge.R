@@ -44,3 +44,4 @@ result = pad_and_bind_dataframes(indexed_input)
 names(result) = gsub("\\.+\\d+", "", names(result))
 
 all.equal(result, test)
+# [1] TRUE

@@ -23,4 +23,24 @@ block4 <- matrix(rep(pattern4, 5), nrow = 5, byrow = TRUE)
 final_matrix <- rbind(block1, block2, block3, block4) %>% as.data.frame()
 
 all.equal(test, final_matrix, check.attributes = F)
+# # [1] TRUE
+
+
+### Second approach
+
+a = 0:4
+b = 5:9
+
+patterns = list(c(rev(b),a, b, rev(a)),
+                 c(rev(a),b, a, rev(b)),
+                 c(b, rev(a), rev(b), a),
+                 c(a, rev(b), rev(a), b))
+
+final_matrix = patterns %>%
+  map( ~ matrix(rep(.x, 5), nrow = 5, byrow = TRUE)) %>%
+  reduce(rbind) %>%
+  as.data.frame()
+
+all.equal(test, final_matrix, check.attributes = F)
 # [1] TRUE
+

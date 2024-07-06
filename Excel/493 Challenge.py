@@ -28,4 +28,4 @@ result = input.groupby('group').agg(
 
 result = result[['Start_Index', 'End_Index', 'Sum']]
 
-print(result)
+print(result.equals(test)) # True

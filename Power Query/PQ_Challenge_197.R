@@ -8,7 +8,7 @@ test  = read_xlsx(path, range = "H1:N21")
 
 result <- input %>%
   group_by(Item, Store) %>%
-  mutate(data = accumulate(`Stock IN` - `Stock OUT`, `+`, .init = 0)[-1],
+  mutate(data = accumulate(`Stock IN` - `Stock OUT`, `+`),
          `Start Stock` = lag(data, default = first(`Stock IN`)),
          `End Stock` = data) %>%
   ungroup() %>%

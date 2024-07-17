@@ -1,0 +1,4 @@
+Challenge 500 has the same content and data as PQ 194 
+Link for solutions 
+https://github.com/kgryczan/excelbi_puzzles/blob/main/Power%20Query/PQ_Challenge_194.R
+https://github.com/kgryczan/excelbi_puzzles/blob/main/Power%20Query/PQ_194.py

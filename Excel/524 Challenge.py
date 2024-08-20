@@ -16,9 +16,6 @@ def find_square(x):
         for combo in combinations
         if math.isqrt(int(''.join(map(str, combo)))) ** 2 == int(''.join(map(str, combo)))
     ]
-    # for empty result return "NP"
-    # for one element in result return that element
-    # for more than one element return concatenated elements
     return result[0] if len(result) == 1 else (', '.join(map(str, result)) if len(result) > 1 else "NP")
 
 input['Perfect Square'] = input['Numbers'].apply(find_square)

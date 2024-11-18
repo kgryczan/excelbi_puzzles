@@ -1,16 +1,21 @@
 library(tidyverse)
 library(readxl)
 
-path = "Excel/166 Porta Chipher Grid.xlsx"
-test  = read_excel(path, range = "A2:M14", col_names = FALSE) %>% as.matrix()
+path = "Excel/167 Pythagoras Tuples.xlsx"
+input = read_excel(path, range = "A1:B10")
+test  = read_excel(path, range = "C1:C10")
 
-letters_seq = LETTERS[14:26]
+result = input %>%
+  mutate(hypotenuse_scenario = sqrt(Number1^2 + Number2^2),
+         max_of_Numbers = pmax(Number1, Number2),
+         min_of_Numbers = pmin(Number1, Number2),
+         other_scenario = sqrt(max_of_Numbers^2 - min_of_Numbers^2)) %>%
+  mutate(result = case_when(
+    round(hypotenuse_scenario) == hypotenuse_scenario ~ hypotenuse_scenario ,
+    round(other_scenario) == other_scenario ~ other_scenario ,
+    TRUE ~ 0
+  )) %>%
+  select(result)
 
-
-M = matrix(NA, nrow = 13, ncol = 13)
-for (i in 1:13) {
-  M[i, ] <- c(tail(letters_seq, i - 1), head(letters_seq, 13 - (i - 1)))
-}
-
-all(test == M)
+all.equal(result, test, check.attributes = FALSE)
 #> [1] TRUE

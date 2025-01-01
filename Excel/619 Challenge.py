@@ -16,4 +16,4 @@ result['rn'] = result.groupby('quarter').cumcount() + 1
 result = result.pivot(index='rn', columns='quarter', values=input.columns[0]).reset_index(drop=True)
 result.columns.name = None
 
-print(all(result==test))
+print(all(result==test)) # True

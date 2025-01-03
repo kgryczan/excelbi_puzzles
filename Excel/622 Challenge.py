@@ -16,4 +16,4 @@ result = filtered.assign(rn=filtered.groupby('list').cumcount() + 1).pivot(index
 result.columns.name = None
 result = result[['List1', 'List2', 'List3', 'List4']]
 
-print(result.equals(test))
+print(result.equals(test)) # True

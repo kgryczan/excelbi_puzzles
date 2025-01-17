@@ -9,4 +9,4 @@ result = input %>%
   mutate(`Answer Expected` = order_by(Time, lag(Caller)), .by = Date) 
 
 all.equal(result$`Answer Expected`, test$`Answer Expected`)
-[1] TRUE
+# [1] TRUE

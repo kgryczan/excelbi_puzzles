@@ -11,5 +11,5 @@ input['set_array1'] = input['Array1'].apply(split_sort_unique)
 input['set_array2'] = input['Array2'].apply(split_sort_unique)
 input['result'] = input.apply(lambda row: row['set_array1'] == row['set_array2'], axis=1)
 result = input[input['result'] == True][['Array1', 'Array2']].reset_index(drop=True)
-
-print(result.equals(test)) #Free
+print(result)
+print(test)

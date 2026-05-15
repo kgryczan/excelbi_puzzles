@@ -22,7 +22,6 @@ def solve(s):
         x[i], x[j] = x[j], x[i]
     return swaps, "".join(x)
 
-# Apply solve function to input
 results = input.apply(lambda row: pd.Series(solve(row[0])), axis=1)
 results.columns = ["Swaps", "Corrected"]
 print(results)
